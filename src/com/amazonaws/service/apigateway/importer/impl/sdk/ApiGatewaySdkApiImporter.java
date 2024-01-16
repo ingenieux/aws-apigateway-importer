@@ -224,11 +224,11 @@ public class ApiGatewaySdkApiImporter {
             basePath = "";
         }
         String base = trimSlashes(basePath);
-        if (!base.equals("")) {
+        if (!"".equals(base)) {
             base = "/" + base;
         }
         String result = StringUtils.removeEnd(base + "/" + trimSlashes(resourcePath), "/");
-        if (result.equals("")) {
+        if ("".equals(result)) {
             result = "/";
         }
         return result;
