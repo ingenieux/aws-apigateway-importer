@@ -323,7 +323,7 @@ public class ApiGatewaySdkRamlApiImporter extends ApiGatewaySdkApiImporter imple
             String key = keysIterator.next();
 
             try {
-                String pattern = key.equals("default") ? null : key;
+                String pattern = "default".equals(key) ? null : key;
                 JSONObject response = responses.getJSONObject(key);
 
                 String status = (String) response.get("statusCode");

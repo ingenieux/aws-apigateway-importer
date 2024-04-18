@@ -274,7 +274,7 @@ public class ApiGatewaySdkSwaggerApiImporter extends ApiGatewaySdkApiImporter im
         HashMap<String, HashMap> responses = (HashMap<String, HashMap>) integ.get("responses");
 
         responses.entrySet().forEach(e -> {
-            String pattern = e.getKey().equals("default") ? null : e.getKey();
+            String pattern = "default".equals(e.getKey()) ? null : e.getKey();
             HashMap response = e.getValue();
 
             String status = (String) response.get("statusCode");
