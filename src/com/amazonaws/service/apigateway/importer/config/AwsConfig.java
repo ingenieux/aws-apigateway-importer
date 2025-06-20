@@ -14,6 +14,7 @@
  */
 package com.amazonaws.service.apigateway.importer.config;
 
+import io.github.pixee.security.BoundedLineReader;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -65,7 +66,7 @@ public class AwsConfig {
             Matcher regionMat;
             Integer eqPos;
 
-            while ((line = br.readLine()) != null) {
+            while ((line = BoundedLineReader.readLine(br, 5_000_000)) != null) {
 
                 if (line.startsWith("[") && line.contains(this.profile)) {
                     foundProfile = true;
