@@ -31,6 +31,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.name.Named;
 import com.google.inject.name.Names;
+import java.security.SecureRandom;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -94,7 +95,7 @@ public class ApiImporterDefaultModule extends AbstractModule {
         final int baseScaleFactor = 600; // base sleep time for general exceptions
         final int throttlingScaleFactorRandomRange = throttlingScaleFactor / 4;
 
-        final Random random = new Random();
+        final Random random = new SecureRandom();
 
         return (originalRequest, exception, retriesAttempted) -> {
 
